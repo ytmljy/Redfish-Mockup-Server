@@ -120,6 +120,7 @@ class RfMockupServer(BaseHTTPRequestHandler):
 
             :param fpath:
             """
+            logger.info("fpath:", fpath)
             with open(fpath) as headers_data:
                 d = json.load(headers_data)
             if isinstance(d.get("GET"), dict):
