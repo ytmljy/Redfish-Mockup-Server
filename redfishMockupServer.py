@@ -79,7 +79,6 @@ class RfMockupServer(BaseHTTPRequestHandler):
             :param path:
             :param filename:
             """
-            logger.info("Calll construct_path:{}".format(path))
             apath = self.server.mockDir
             rpath = clean_path(path, self.server.shortForm)
             return '/'.join([ apath, rpath, filename ]) if filename not in ['', None] else '/'.join([ apath, rpath ])
