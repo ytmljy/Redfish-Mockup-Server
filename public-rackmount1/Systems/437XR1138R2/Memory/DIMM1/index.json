@@ -29,6 +29,9 @@
     "EnvironmentMetrics": {
         "@odata.id": "/redfish/v1/Systems/437XR1138R2/Memory/DIMM1/EnvironmentMetrics"
     },
+    "Metrics": {
+        "@odata.id": "/redfish/v1/Systems/437XR1138R2/Memory/DIMM1/MemoryMetrics"
+    },
     "@odata.id": "/redfish/v1/Systems/437XR1138R2/Memory/DIMM1",
     "@Redfish.Copyright": "Copyright 2014-2022 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright."
 }
