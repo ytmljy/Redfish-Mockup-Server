@@ -79,6 +79,7 @@ class RfMockupServer(BaseHTTPRequestHandler):
             :param path:
             :param filename:
             """
+            logger.info("Calll construct_path:{}".format(path))
             apath = self.server.mockDir
             rpath = clean_path(path, self.server.shortForm)
             return '/'.join([ apath, rpath, filename ]) if filename not in ['', None] else '/'.join([ apath, rpath ])
@@ -120,6 +121,7 @@ class RfMockupServer(BaseHTTPRequestHandler):
 
             :param fpath:
             """
+            logger.info('fpath:{}'.format(fpath))
             with open(fpath) as headers_data:
                 d = json.load(headers_data)
             if isinstance(d.get("GET"), dict):
@@ -133,7 +135,10 @@ class RfMockupServer(BaseHTTPRequestHandler):
             pattern = re.sub(r'\d+$', '{id}', members[0].get('@odata.id').replace(self.path, '').strip('/')) if len(members) else 'Member{id}'
             newpath_id = data_received.get('Id', pattern.format(id=n))
             newpath = '/'.join([ self.path, newpath_id ])
-            while newpath in [m.get('@odata.id') for m in members]:
+            logger.info("@@@ {}".format(members))
+            logger.info("@@@ newpath{}".format(newpath))
+            for newpath in [m.get('@odata.id') for m in members]:
+                logger.info("@@@ 111111111111111 newpath{}".format(newpath))
                 n = n + 1
                 newpath_id = data_received.get('Id', pattern.format(id=n))
                 newpath = '/'.join([ self.path, newpath_id ])
@@ -143,6 +148,7 @@ class RfMockupServer(BaseHTTPRequestHandler):
 
             payload['Members'] = members
             payload['Members@odata.count'] = len(members)
+            logger.info("@@@ newpath{}".format(newpath))
             return newpath
 
         def handle_eventing(self, data_received):
