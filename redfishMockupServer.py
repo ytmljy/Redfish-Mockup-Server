@@ -519,7 +519,7 @@ class RfMockupServer(BaseHTTPRequestHandler):
 
                 self.wfile.write(encoded_data)
 
-                logger.info("   RES: Body: {}".format(encoded_data))
+                logger.info("   RES: Body: {}".format(output_data))
 
             # if XML...
             elif os.path.isfile(fpath_xml):
