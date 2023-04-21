@@ -101,7 +101,7 @@ class RfSSDPServer():
         pass
 
     def check(self, data, addr):
-        logger.info('SSDP Packet received from {}'.format(addr))
+        logger.info('SSDP Packet received from {} data {}'.format(addr, data))
         decoded = data.decode().replace('\r', '').split('\n')
         msgtype, decoded = decoded[0], decoded[1:]
         decodeddict = {x.split(':',  1)[0].upper(): x.split(':', 1)[1].strip(' ') for x in decoded if x != ''}
