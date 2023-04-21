@@ -87,6 +87,7 @@ class RfSSDPServer():
                     logger.info('Ssdp Poll... {} pings'.format(pcount))
                     pcount = 0
                     countTimeout = 1
+                logger.info('self.sock.recvfrom(1024)')
                 data, addr = self.sock.recvfrom(1024)
                 pcount += 1
                 self.check(data, addr)
