@@ -65,7 +65,10 @@ class RfSSDPServer():
         interface = socket.inet_aton(self.ip)
         sock.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, addr + interface)
 
+        logger.info('IP {} Port {}'.format(self.ip, self.port))
+
         sock.bind((self.ip, self.port))
+        
         """
         Redfish Service Search Target (ST): "urn:dmtf-org:service:redfish-rest:1"
         For ssdp, "ssdp:all".
