@@ -67,7 +67,8 @@ class RfSSDPServer():
 
         logger.info('IP {} Port {}'.format(self.ip, self.port))
 
-        sock.bind((self.ip, self.port))
+        #sock.bind((self.ip, self.port))
+        sock.bind(('239.255.255.250', self.port))
         
         """
         Redfish Service Search Target (ST): "urn:dmtf-org:service:redfish-rest:1"
