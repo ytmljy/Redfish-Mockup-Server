@@ -111,10 +111,10 @@ class RfSSDPServer():
             if st in self.searchtargets:
                 response = ['HTTP/1.1 200 OK',
                             'CACHE-CONTROL: max-age={}'.format(self.cachecontrol),
-                            'ST: urn:dmtf-org:service:redfish-rest:1:{}'.format(self.minor),
-                            'USN: uuid:{}::urn:dmtf-org:service:redfish-rest:1:{}'.format(self.UUID, self.minor),
-                            'AL: {}'.format(self.location),
-                            'EXT: ']
+                            'ST:urn:dmtf-org:service:redfish-rest:1:{}'.format(self.minor),
+                            'USN:uuid:{}::urn:dmtf-org:service:redfish-rest:1:{}'.format(self.UUID, self.minor),
+                            'AL:{}'.format(self.location),
+                            'EXT:']
 
                 response.extend(('', ''))
                 response = '\r\n'.join(response)
